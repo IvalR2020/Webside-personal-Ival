@@ -1,0 +1,256 @@
+/* FILE: style.css */
+
+/* PENINGKATAN GLOBAL */
+html {
+    scroll-behavior: smooth;
+}
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+  font-family: 'Roboto', sans-serif; 
+  background: #FFFFFF; /* Ganti background menjadi putih bersih */
+  color: #2D2D2D; /* Warna teks lebih gelap */
+  line-height: 1.7;
+}
+
+/* HEADER - Lebih Tajam dan Fokus */
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background: #395B64; /* Warna solid gelap (Hijau Kebiruan Tua) */
+  color: #E6F5F1; /* Warna teks lebih terang untuk kontras */
+}
+
+/* Gambar Profil */
+#profile-picture {
+    width: 140px; 
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #A5C9CA; /* Border dengan warna pendukung */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1.5px; /* Sedikit spasi antar huruf untuk kesan profesional */
+}
+header p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #D3E0E2;
+}
+nav {
+  margin-top: 40px;
+}
+nav a {
+  text-decoration: none;
+  color: #E6F5F1;
+  margin: 0 12px;
+  padding: 10px 25px;
+  border: 1px solid #A5C9CA; /* Border lebih tipis */
+  border-radius: 5px; /* Bentuk kotak, bukan bulat */
+  transition: 0.3s ease-in-out;
+  font-weight: 400;
+  /* Tambahkan gaya untuk penanda halaman aktif */
+  opacity: 0.7; 
+}
+nav a:hover {
+  background: #A5C9CA;
+  color: #395B64;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+/* Penanda halaman aktif */
+nav a.active {
+    background: #A5C9CA;
+    color: #395B64;
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* SECTION */
+section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #395B64;
+  font-weight: 700;
+}
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #A5C9CA;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* ABOUT */
+#about {
+    background: #F4F4F4; /* Background abu-abu muda */
+}
+#about p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 900px;
+  margin: 20px auto 0;
+}
+
+/* FILE: style.css (TIMPA BAGIAN PORTFOLIO YANG LAMA) */
+
+/* ... CSS sebelumnya ... */
+
+/* PORTFOLIO */
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+.portfolio-item {
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative; /* PENTING: Untuk positioning overlay */
+}
+.portfolio-item a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(57, 91, 100, 0.4); /* Bayangan lebih dramatis saat hover */
+}
+
+.portfolio-item img {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.4s ease; /* Transisi untuk gambar */
+}
+.portfolio-item:hover img {
+    opacity: 0.3; /* Gambar meredup saat overlay muncul */
+}
+
+/* Menghapus gaya lama (karena teks sekarang ada di overlay) */
+/* .portfolio-item h3 dan .portfolio-item p (DIHAPUS atau dinonaktifkan) */
+
+/* GAYA OVERLAY BARU */
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(57, 91, 100, 0.7); /* Background overlay semi-transparan */
+    opacity: 0; /* Awalnya tersembunyi */
+    transition: opacity 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.portfolio-item:hover .item-overlay {
+    opacity: 1; /* Overlay muncul saat hover */
+}
+
+.overlay-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: 600;
+    /* Tambahkan efek agar teks muncul sedikit dari bawah */
+    transform: translateY(10px);
+    transition: transform 0.4s ease;
+}
+
+.overlay-content p {
+    font-size: 0.9rem;
+    color: #D3E0E2;
+    font-weight: 300;
+    transform: translateY(10px);
+    transition: transform 0.4s ease 0.1s; /* Keterlambatan agar muncul setelah judul */
+}
+
+/* Efek interaktif: Teks naik saat overlay muncul */
+.portfolio-item:hover .overlay-content h3,
+.portfolio-item:hover .overlay-content p {
+    transform: translateY(0);
+}
+
+/* ... CSS lainnya ... */
+
+/* CONTACT */
+#contact p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #555;
+}
+#contact a {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 35px;
+  border-radius: 5px;
+  text-decoration: none;
+  background: #395B64;
+  color: #fff;
+  border: 2px solid #395B64;
+  transition: all 0.3s;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+#contact a:hover {
+  background: #4B798A;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(57, 91, 100, 0.5);
+}
+#contact a:nth-child(3) { /* Kontak Sekunder (LinkedIn) */
+    background: transparent;
+    color: #395B64;
+}
+#contact a:nth-child(3):hover {
+    background: #E0E0E0;
+    color: #395B64;
+    box-shadow: none;
+}
+#contact a:nth-child(4) { /* Kontak Tersier (Instagram) */
+    background: transparent;
+    color: #395B64;
+    border-color: #A5C9CA;
+}
+#contact a:nth-child(4):hover {
+    background: #A5C9CA;
+    color: #395B64;
+    box-shadow: none;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #395B64;
+  color: #E6F5F1;
+  font-size: 0.9rem;
+}
